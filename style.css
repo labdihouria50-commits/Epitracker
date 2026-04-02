@@ -1,40 +1,90 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
 body {
-  background: #f5f5f5;
-  color: #333;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at center, #0f2a44, #081a2f);
+  color: white;
   text-align: center;
 }
 
-/* HEADER */
-header {
-  background: #fff;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
+/* CONTAINER */
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
 }
 
-header h1 {
-  font-size: 20px;
-}
-
-header p {
-  font-size: 12px;
-  color: gray;
-}
-
-/* HERO */
-.hero img {
+/* LOGO */
+.logo {
   width: 100%;
-  max-height: 300px;
-  object-fit: cover;
+  max-width: 300px;
+  margin-bottom: 20px;
 }
 
-/* LOGIN */
+/* TEXT */
+h3 {
+  margin: 20px 0 10px;
+  font-weight: 500;
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #4fc3f7;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* CARDS */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #00e5ff;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+  background: rgba(0, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(0,255,255,0.2);
+}
+
+.card h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.card p {
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: #ccc;
+}
+
+.card span {
+  font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #aaa;
+}/* LOGIN */
 .login {
   padding: 20px;
 }
