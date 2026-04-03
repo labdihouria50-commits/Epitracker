@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details & Proof</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <h2>Complete Your Payment</h2>
+        <p>Please send <strong>$79.00</strong> to one of the accounts below:</p>
+
+        <div class="payment-methods">
+            <div class="method-card">
+                <strong>Algerie Poste (CCP)</strong>
+                <p>Account: 0012345678 / 99</p>
+                <p>Name: [Your Full Name Here]</p>
+            </div>
+            <div class="method-card">
+                <strong>Bybit (USDT/RIP)</strong>
+                <p>Network: TRC20</p>
+                <p style="font-size: 12px; word-break: break-all;">Address: [Your_Bybit_Wallet_Address_Here]</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <form action="https://formspree.io/f/xqegddaw" method="POST" enctype="multipart/form-data">
+            <h3>Submit Proof of Payment</h3>
+            
+            <div class="input-group">
+                <input type="text" name="customer_name" placeholder="Enter Your Name" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" name="customer_email" placeholder="Enter Your Email" required>
+            </div>
+            
+            <div class="input-group">
+                <label style="display:block; margin-bottom: 5px; color: #666;">Upload Screenshot/Receipt:</label>
+                <input type="file" name="payment_proof" accept="image/*" required>
+            </div>
+
+            <button type="submit" class="main-btn">Confirm & Send Proof</button>
+        </form>
+        
+        <p style="text-align:center; font-size: 12px; color: #888; margin-top: 20px;">
+            We will verify the transfer and email your files within 24 hours.
+        </p>
+    </div>
+
+</body>
+</html>
