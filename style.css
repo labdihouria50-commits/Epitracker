@@ -1,39 +1,125 @@
+/* Responsive, Fixed CSS for your PDF Store */
+
+:root {
+    --logo-blue: #234E94;
+    --text-dark: #222222;
+    --text-grey: #666666;
+    --price-green: #28a745; /* Fixed Deviation: The price color */
+    --btn-blue: #216CE7;
+    --btn-blue-hover: #195ac7;
+    --bg-light: #F9FAFB;
+    --border-light: #E0E0E0;
+}
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f7f9;
+    font-family: 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+    background-color: var(--bg-light);
     margin: 0;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .main-container {
-    max-width: 900px;
-    margin: 0 auto;
     background: white;
-    padding: 40px;
+    width: 650px;
+    padding: 60px 40px; /* Top/Bottom Left/Right */
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* Logo Top Left */
-.header-section {
-    text-align: left;
-    margin-bottom: 30px;
-}
-
-.site-logo {
-    height: 70px;
-    width: auto;
-}
-
-/* Search Bar */
-.search-section {
-    margin-bottom: 30px;
-}
-
-.search-section input {
+/* FIX: Ensure the marketplace container stack everything cleanly */
+.pdf-marketplace {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+/* FIX: The PDF Card is no longer a flexbox row.
+   It is a column stack, which centers everything and shows the button. */
+.pdf-card {
+    display: flex;
+    flex-direction: column; /* Fixed: Prevents deviation by stacking vertically */
+    align-items: center; /* Horizontally centers children */
+    text-align: center;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: 0.2s;
+}
+
+.pdf-card:hover {
+    border-color: #234e9430;
+}
+
+/* FIX: Deviation fix for title and price */
+.pdf-details {
+    margin-bottom: 20px;
+}
+
+.pdf-details h3 {
+    font-size: 20px;
+    margin: 0;
+    color: var(--text-dark);
+    word-wrap: break-word; /* Prevents long titles from pushing content */
+}
+
+/* FIX: The Price Green color */
+.pdf-price {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--price-green); /* Corrected green price */
+    margin: 10px 0 0 0;
+}
+
+/* FIX: Make the Buy Button visible and clean */
+.buy-button {
+    background-color: var(--btn-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%;
+    max-width: 250px; /* Keeps it from being too wide */
+}
+
+.buy-button:hover {
+    background-color: var(--btn-blue-hover);
+}
+
+/* Introduction and Logo Section (Keep Centered) */
+.logo-section, .intro-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-text { font-weight: bold; font-size: 20px; color: var(--logo-blue); }
+
+/* Further Details and Footer Note */
+.further-details {
+    width: 100%;
+    margin-top: 50px;
+    color: var(--text-grey);
+    font-size: 14px;
+    text-align: center;
+}
+
+.footer-note {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    color: var(--text-grey);
+    font-size: 14px;
+}
     border-radius: 25px;
     font-size: 16px;
     outline: none;
