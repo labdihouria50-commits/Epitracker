@@ -23,17 +23,71 @@
         </section>
 
         <div class="pdf-marketplace" id="pdfList">
+            
             <div class="pdf-card">
                 <div class="pdf-details">
                     <h3>COVID-19 Statistics</h3>
                     <p class="pdf-price">$20.00</p>
                 </div>
-                <button onclick="goToPayment('COVID-19', '20.00')" class="buy-button">Buy PDF</button>
+                <button onclick="goToPayment('COVID-19 Statistics', '20.00')" class="buy-button">Buy PDF</button>
             </div>
 
             <div class="pdf-card">
                 <div class="pdf-details">
                     <h3>Cancer Data Report</h3>
+                    <p class="pdf-price">$40.00</p>
+                </div>
+                <button onclick="goToPayment('Cancer Data Report', '40.00')" class="buy-button">Buy PDF</button>
+            </div>
+
+            <div class="pdf-card">
+                <div class="pdf-details">
+                    <h3>Heart Disease 2026</h3>
+                    <p class="pdf-price">$35.00</p>
+                </div>
+                <button onclick="goToPayment('Heart Disease 2026', '35.00')" class="buy-button">Buy PDF</button>
+            </div>
+
+            <div class="pdf-card">
+                <div class="pdf-details">
+                    <h3>Algeria Health Trends</h3>
+                    <p class="pdf-price">$15.00</p>
+                </div>
+                <button onclick="goToPayment('Algeria Health Trends', '15.00')" class="buy-button">Buy PDF</button>
+            </div>
+
+        </div>
+
+        <footer class="further-details">
+            <hr>
+            <h4>Further Details</h4>
+            <p>All PDFs are delivered in high-resolution digital format. Reports include 2025-2026 projections and verified data sources. For custom data requests, contact our support team.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Search function: Looks at the <h3> text inside every .pdf-card
+        function filterPDFs() {
+            let input = document.getElementById('pdfSearch').value.toLowerCase();
+            let cards = document.getElementsByClassName('pdf-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // Sends the selected product info to the pay.html page
+        function goToPayment(name, price) {
+            window.location.href = `pay.html?product=${encodeURIComponent(name)}&price=${price}`;
+        }
+    </script>
+</body>
+</html>
                     <p class="pdf-price">$40.00</p>
                 </div>
                 <button onclick="goToPayment('Cancer Data', '40.00')" class="buy-button">Buy PDF</button>
