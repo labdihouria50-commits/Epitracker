@@ -1,39 +1,85 @@
-/* Restyled CSS for your Data Store */
-
-:root {
-    --logo-blue: #234E94;
-    --text-dark: #222222;
-    --text-grey: #666666;
-    --btn-blue: #216CE7;
-    --btn-blue-hover: #195ac7;
-    --bg-light: #F9FAFB;
-    --border-light: #E0E0E0;
-}
-
 body {
-    font-family: 'Segoe UI', Roboto, 'Open Sans', sans-serif;
-    background-color: var(--bg-light);
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7f9;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Centers vertically */
+    padding: 20px;
 }
 
-/* The overall container on the page */
 .main-container {
+    max-width: 900px;
+    margin: 0 auto;
     background: white;
-    width: 650px; /* Made a bit smaller for a centered look */
-    padding: 60px;
+    padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Horizontally centers children */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* We are removing the two-column grid.
-   This code fixes the main content layout. */
+/* Logo Top Left */
+.header-section {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.site-logo {
+    height: 70px;
+    width: auto;
+}
+
+/* Search Bar */
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-section input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Introduction */
+.intro-section h1 { color: #234E94; margin-bottom: 10px; }
+.intro-section p { color: #666; line-height: 1.6; margin-bottom: 40px; }
+
+/* PDF Marketplace List */
+.pdf-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.pdf-details h3 { margin: 0; font-size: 18px; color: #333; }
+.pdf-price { color: #28a745; font-weight: bold; font-size: 18px; margin: 5px 0 0 0; }
+
+/* Buying Button Style */
+.buy-button {
+    background-color: #216CE7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buy-button:hover { background-color: #195ac7; }
+
+/* Footer Details */
+.further-details {
+    margin-top: 50px;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Payment Form Styling (for pay.html) */
+.method-card { background: #f9f9f9; padding: 15px; border-left: 4px solid #216CE7; margin-bottom: 10px; }
+.input-group { margin-bottom: 15px; }
+.input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
 .data-product-grid {
     display: flex;
     flex-direction: column;
