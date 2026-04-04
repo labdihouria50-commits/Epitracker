@@ -1,39 +1,146 @@
+/* Restyled CSS for your Data Store */
+
 :root {
-    --blue: #216CE7;
-    --dark: #222;
-    --grey: #666;
-    --light-bg: #f9fafb;
+    --logo-blue: #234E94;
+    --text-dark: #222222;
+    --text-grey: #666666;
+    --btn-blue: #216CE7;
+    --btn-blue-hover: #195ac7;
+    --bg-light: #F9FAFB;
+    --border-light: #E0E0E0;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--light-bg);
+    font-family: 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+    background-color: var(--bg-light);
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; /* Centers vertically */
 }
 
+/* The overall container on the page */
 .main-container {
     background: white;
-    width: 100%;
-    max-width: 800px;
-    padding: 50px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    width: 650px; /* Made a bit smaller for a centered look */
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally centers children */
 }
 
-/* Logo */
-.logo-section { display: flex; align-items: center; margin-bottom: 40px; }
-.logo-stack { display: flex; flex-direction: column; margin-right: 12px; }
-.logo-bar { width: 25px; height: 5px; background: #234E94; margin-bottom: 2px; border-radius: 2px; }
-.logo-text { font-weight: bold; color: #234E94; line-height: 1; font-size: 18px; }
+/* We are removing the two-column grid.
+   This code fixes the main content layout. */
+.data-product-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
 
-/* Grid */
-.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+/* FIX: Logo styling to match and center.
+   This removes the stacking bars for a simpler logo. */
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
 
-h2 { font-size: 28px; margin: 0; color: var(--dark); }
+.logo-text {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.1;
+    color: var(--logo-blue);
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* DELETED / CLEANED UP:
+   We are hiding/removing the old left-side text. */
+.product-info-left,
+.COVID-text-container,
+.price-tag,
+.badges-container {
+    display: none !important;
+}
+
+/* Clean up input and button area */
+.payment-info-right {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-label {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-light);
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--text-grey);
+    box-sizing: border-box;
+}
+
+.action-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.secure-label {
+    color: var(--text-grey);
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.secure-label i {
+    margin-right: 8px;
+}
+
+.buy-button {
+    background-color: var(--btn-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%;
+}
+
+.buy-button:hover {
+    background-color: var(--btn-blue-hover);
+}
+
+/* Footer note */
+.data-delivery-note {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--text-grey);
+    font-size: 14px;
+    width: 100%;
+}
 .records { color: var(--grey); margin-top: 5px; }
 .price { font-size: 42px; font-weight: bold; margin: 20px 0; }
 .label { font-weight: bold; margin-bottom: 10px; }
