@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Payment - Epitracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: var(--dark-bg);">
+    <div class="main-container">
+        <h2>Complete Your Purchase</h2>
+        <p>Item: <strong id="p-name" style="color:var(--accent-blue);">---</strong></p>
+        <p>Price: <strong id="p-price" style="color:var(--green);">---</strong></p>
+
+        <div class="contact-info">
+            <h4>Our Payment Details</h4>
+            <p><strong>Algerie Poste (CCP):</strong> 0012345678 / 99</p>
+            <p><strong>Bybit (USDT TRC20):</strong> 0x71C7...YourAddress</p>
+        </div>
+
+        <form action="https://formspree.io/f/xqegddaw" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="Selected_Product" id="h-name">
+            <input type="hidden" name="Price" id="h-price">
+
+            <div class="input-group"><input type="text" name="customer_name" placeholder="Full Name" required></div>
+            <div class="input-group" style="margin-top:10px;"><input type="email" name="customer_email" placeholder="Email Address" required></div>
+            
+            <div style="margin: 20px 0;">
+                <label style="font-size: 14px; color: #666;">Upload Payment Receipt:</label><br>
+                <input type="file" name="receipt" accept="image/*" required>
+            </div>
+
+            <button type="submit" class="buy-button" style="width:100%; max-width: none;">Confirm & Send Proof</button>
+        </form>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('product');
+        const price = params.get('price');
+        document.getElementById('p-name').innerText = name;
+        document.getElementById('p-price').innerText = "$" + price;
+        document.getElementById('h-name').value = name;
+        document.getElementById('h-price').value = price;
+    </script>
+</body>
+</html>

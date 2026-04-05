@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epitracker - Global Disease Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <header class="header-section">
+            <img src="logo.png" alt="Epitracker Logo" class="site-logo">
+        </header>
+
+        <div class="search-section">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="pdfSearch" placeholder="Search for disease data, statistics, or reports..." onkeyup="filterPDFs()">
+        </div>
+
+        <section class="intro-section">
+            <h1>About Epitracker</h1>
+            <p>Your global partner in epidemiological intelligence. We provide high-accuracy, data-driven reports to help professionals stay informed about health trends.</p>
+        </section>
+
+        <h2 class="section-title">Subscription Plans</h2>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <h3>Monthly Access</h3>
+                <p class="price">$15<span>/mo</span></p>
+                <ul>
+                    <li>All Monthly Reports</li>
+                    <li>Email Alerts</li>
+                </ul>
+                <button onclick="goToPayment('Monthly Subscription', '15.00')" class="buy-button">Subscribe</button>
+            </div>
+            <div class="offer-card featured">
+                <div class="ribbon">Best Value</div>
+                <h3>Yearly Access</h3>
+                <p class="price">$120<span>/yr</span></p>
+                <ul>
+                    <li>Unlimited PDF Downloads</li>
+                    <li>24/7 Priority Support</li>
+                </ul>
+                <button onclick="goToPayment('Yearly Subscription', '120.00')" class="buy-button">Subscribe</button>
+            </div>
+        </div>
+
+        <h2 class="section-title">Individual Reports</h2>
+        <div class="pdf-marketplace" id="pdfList">
+            
+            <div class="pdf-card">
+                <div class="pdf-info">
+                    <h3>COVID-19 Statistics 2025</h3>
+                    <p class="pdf-price">$20.00</p>
+                </div>
+                <button onclick="goToPayment('COVID-19 Statistics', '20.00')" class="buy-button">Buy PDF</button>
+            </div>
+
+            <div class="pdf-card">
+                <div class="pdf-info">
+                    <h3>Cancer Data Report</h3>
+                    <p class="pdf-price">$40.00</p>
+                </div>
+                <button onclick="goToPayment('Cancer Data Report', '40.00')" class="buy-button">Buy PDF</button>
+            </div>
+
+            <div class="pdf-card">
+                <div class="pdf-info">
+                    <h3>Algeria Health Trends</h3>
+                    <p class="pdf-price">$15.00</p>
+                </div>
+                <button onclick="goToPayment('Algeria Health Trends', '15.00')" class="buy-button">Buy PDF</button>
+            </div>
+
+        </div>
+
+        <footer class="footer-section">
+            <hr>
+            <h4>Further Details</h4>
+            <p>All PDFs are delivered in high-resolution digital format. Reports include verified data sources. For custom requests, reach us via the details below.</p>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> epitracker29@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 05.55.55.55.55</p>
+                <p><a href="https://www.facebook.com/profile.php?id=61561342018257" target="_blank"><i class="fab fa-facebook"></i> Visit our Facebook</a></p>
+            </div>
+            <p class="delivery-msg">After payment, data will be delivered directly to your email.</p>
+        </footer>
+    </div>
+
+    <script>
+        function filterPDFs() {
+            let input = document.getElementById('pdfSearch').value.toLowerCase();
+            let cards = document.getElementsByClassName('pdf-card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                cards[i].style.display = title.includes(input) ? "flex" : "none";
+            }
+        }
+
+        function goToPayment(name, price) {
+            window.location.href = `pay.html?product=${encodeURIComponent(name)}&price=${price}`;
+        }
+    </script>
+</body>
+</html>
