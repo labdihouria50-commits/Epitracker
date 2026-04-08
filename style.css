@@ -85,3 +85,35 @@ body {
     .pdf-card { flex-direction: column; text-align: center; gap: 15px; }
     .main-container { padding: 20px; }
 }
+/* Analysis Box Styling */
+.analysis-box {
+    background: rgba(33, 108, 231, 0.05);
+    border: 1px solid #216CE7;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.drive-link {
+    display: inline-block;
+    margin-top: 5px;
+    color: #216CE7;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Make sure buttons always center on mobile */
+.buy-button {
+    background-color: #216CE7;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
