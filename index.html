@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
     <div class="main-container">
         <header class="header-section">
             <img src="logo.png" alt="Epitracker Logo" class="site-logo">
@@ -16,24 +15,37 @@
 
         <div class="search-section">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" id="pdfSearch" placeholder="Search for disease data, statistics, or reports..." onkeyup="filterPDFs()">
+            <input type="text" id="diseaseInput" placeholder="Search disease (e.g., COVID-19, Cancer)..." />
+            <button onclick="searchDisease()" class="buy-button" style="margin-top:10px; width:100%;">View Statistics</button>
+        </div>
+
+        <div class="analysis-box">
+            <p><i class="fas fa-chart-line"></i> <strong>Data Transparency:</strong></p>
+            <a href="YOUR_GOOGLE_DRIVE_URL_HERE" target="_blank" class="drive-link">How We Analyze Our Data (View PDF)</a>
         </div>
 
         <section class="intro-section">
             <h1>About Epitracker</h1>
-            <p>Your global partner in epidemiological intelligence. We provide high-accuracy, data-driven reports to help professionals stay informed about health trends.</p>
+            <p>Your global partner in epidemiological intelligence. High-accuracy, data-driven reports for professionals.</p>
         </section>
 
-        <h2 class="section-title">Subscription Plans</h2>
-        <div class="offers-grid">
-            <div class="offer-card">
-                <h3>Monthly Access</h3>
-                <p class="price">$15<span>/mo</span></p>
-                <ul>
-                    <li>All Monthly Reports</li>
-                    <li>Email Alerts</li>
-                </ul>
-                <button onclick="goToPayment('Monthly Subscription', '15.00')" class="buy-button">Subscribe</button>
+        <footer class="footer-section">
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> epitracker29@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 05.55.55.55.55</p>
+                <p><a href="https://www.facebook.com/profile.php?id=61561342018257" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function searchDisease() {
+            let query = document.getElementById('diseaseInput').value.trim().toLowerCase();
+            if (query) { window.location.href = `stats.html?disease=${encodeURIComponent(query)}`; }
+        }
+    </script>
+</body>
+</html>
             </div>
             <div class="offer-card featured">
                 <div class="ribbon">Best Value</div>
