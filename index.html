@@ -14,10 +14,25 @@
         </header>
 
         <div class="search-section">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" id="diseaseInput" placeholder="Search disease (e.g., COVID-19, Cancer)..." />
-            <button onclick="searchDisease()" class="buy-button" style="margin-top:10px; width:100%;">View Statistics</button>
-        </div>
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" id="diseaseInput" placeholder="Search disease (e.g., Covid)..." />
+    <button onclick="searchDisease()" class="buy-button" style="margin-top:10px; width:100%;">View Statistics</button>
+</div>
+
+<script>
+function searchDisease() {
+    // Get what the user typed
+    let query = document.getElementById('diseaseInput').value.trim().toLowerCase();
+    
+    if (query === "") {
+        alert("Please enter a disease name first!");
+    } else {
+        // This MUST match your filename: stats.html
+        window.location.href = "stats.html?disease=" + encodeURIComponent(query);
+    }
+}
+</script>
+
 
         <div class="analysis-box">
             <p><i class="fas fa-chart-line"></i> <strong>Data Transparency:</strong></p>
