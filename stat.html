@@ -10,7 +10,7 @@
 <body style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
     <div class="main-container">
         <header class="header-section">
-            <img src="logo.png" alt="Logo" class="site-logo" onclick="window.location.href='index.html'" style="cursor:pointer;">
+            <img src="logo.png" alt="Logo" class="site-logo" onclick="window.location.href='index.html'" style="cursor:pointer; max-width: 100px;">
         </header>
 
         <div id="stats-content">
@@ -22,26 +22,28 @@
     </div>
 
     <script>
+        // Your Disease List
         const diseaseDatabase = {
-            "covid-19": {
-                title: "COVID-19 History",
+            "covid": {
+                title: "COVID-19 Statistics",
                 price: "20.00",
                 history: [
-                    { year: "2020", summary: "Global outbreak and initial lockdown phases." },
-                    { year: "2022", summary: "Omicron variant dominance and surveillance." },
-                    { year: "2025", summary: "Current 10,000+ record tracking." }
+                    { year: "2020", summary: "Global outbreak and initial tracking records." },
+                    { year: "2022", summary: "Data showing peak variants and recovery rates." },
+                    { year: "2025", summary: "Current surveillance of 10,000+ local records." }
                 ]
             },
             "cancer": {
                 title: "Cancer Trends",
                 price: "40.00",
                 history: [
-                    { year: "2021", summary: "Implementation of early screening data." },
-                    { year: "2024", summary: "Breakthrough success rates in regional reports." }
+                    { year: "2021", summary: "Introduction of new screening data analysis." },
+                    { year: "2024", summary: "Recent trends in treatment success rates." }
                 ]
             }
         };
 
+        // Logic to read the search
         const params = new URLSearchParams(window.location.search);
         const query = params.get('disease') ? params.get('disease').toLowerCase() : "";
         const contentDiv = document.getElementById('stats-content');
@@ -52,20 +54,36 @@
             
             item.history.forEach(h => {
                 html += `
-                <div class="history-item" style="border-left: 4px solid #216CE7; padding:15px; background:#fff; margin-bottom:10px; border-radius:5px;">
+                <div class="history-item" style="border-left: 4px solid #216CE7; padding:15px; background:#f9f9f9; margin-bottom:10px; border-radius:5px; text-align:left;">
                     <strong style="color:#234E94;">Year ${h.year}</strong>
                     <p style="margin:5px 0 0; color:#555; font-size:14px;">${h.summary}</p>
                 </div>`;
             });
 
-            // THE BUY BUTTON ON SECOND PAGE
+            // THE BUY BUTTON
             html += `</div>
-            <div style="background:#f8fafc; padding:20px; border-radius:10px; margin-top:20px; border:1px dashed #216CE7; text-align:center;">
-                <p style="font-weight:bold; color:#234E94;">Full Detailed Report Available</p>
+            <div style="background:#f0f7ff; padding:20px; border-radius:10px; margin-top:20px; border:1px solid #216CE7; text-align:center;">
+                <p style="font-weight:bold; color:#234E94;">Get the Full PDF Report</p>
                 <button onclick="window.location.href='pay.html?product=${encodeURIComponent(item.title)}&price=${item.price}'" class="buy-button" style="width:100%; margin-top:10px;">
-                    <i class="fas fa-shopping-cart"></i> Buy Full PDF Report ($${item.price})
+                    <i class="fas fa-shopping-cart"></i> Buy PDF ($${item.price})
                 </button>
             </div>`;
+            
+            contentDiv.innerHTML = html;
+        } else {
+            // NOT FOUND MESSAGE
+            contentDiv.innerHTML = `
+            <div style="text-align:center; padding:40px;">
+                <h2 style="color:#234E94;">No Data Found</h2>
+                <p style="color:#64748b;">We don't have records for "${query}" yet.</p>
+                <a href="mailto:epitracker29@gmail.com?subject=Order: ${query}" class="buy-button" style="display:inline-block; text-decoration:none; margin-top:20px; background:#d97706;">
+                   Order via Gmail
+                </a>
+            </div>`;
+        }
+    </script>
+</body>
+</html>
             
             contentDiv.innerHTML = html;
         } else {
